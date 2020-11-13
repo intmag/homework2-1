@@ -1,10 +1,10 @@
 package ru.geekbrains.homework1;
 
-public class Wall implements Obstacle{
+public class Wall implements Obstacle {
     public static final double MAXHEIGHT = 2.0;
     protected double height;
 
-    Wall(double height){
+    Wall(double height) {
         setHeight(height);
     }
 
