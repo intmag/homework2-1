@@ -22,19 +22,18 @@ public class Main {
             if (i < 3) {
                 obstacles[i] = new Wall(Math.random() * Wall.MAXHEIGHT);
             } else {
-                obstacles[i] = new Treadmill((int)(Math.random() * Treadmill.MAXDISTANCE));
+                obstacles[i] = new Treadmill((int) (Math.random() * Treadmill.MAXDISTANCE));
             }
         }
-
         for (int i = 0; i < obstacles.length; i++) {
             for (int j = 0; j < competitors.length; j++) {
-                if(competitors[i].isDropout()){
+                if (competitors[i].isDropout()) {
                     continue;
                 }
-                if(obstacles[i] instanceof Wall){
-                    competitors[j].jump((Wall)obstacles[i]);
-                } else if (obstacles[i] instanceof Treadmill){
-                    competitors[j].run((Treadmill)obstacles[i]);
+                if (obstacles[i] instanceof Wall) {
+                    competitors[j].jump((Wall) obstacles[i]);
+                } else if (obstacles[i] instanceof Treadmill) {
+                    competitors[j].run((Treadmill) obstacles[i]);
                 }
             }
         }
