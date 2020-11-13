@@ -2,22 +2,69 @@ package ru.geekbrains.homework1;
 
 public class Creature {
 
-    protected String name;
+    private String name;
+    private double jumpHeight;
+    private int runDistance;
+    private boolean dropout = false;
 
-    Creature(String name) {
+    Creature(String name, int runDistance, double jumpHeight) {
         setName(name);
+        setRunDistance(runDistance);
+        setJumpHeight(jumpHeight);
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
-    void run() {
-        System.out.println(name + " бежит");
+    public boolean isDropout() {
+        return dropout;
     }
 
-    void swim() {
-        System.out.println(name +" плавает");
+    private void setDropout(boolean dropout) {
+        this.dropout = dropout;
+    }
+
+    private void setJumpHeight(double jumpHeight) {
+        this.jumpHeight = jumpHeight;
+    }
+
+    private void setRunDistance(int runDistance) {
+        this.runDistance = runDistance;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getJumpHeight() {
+        return jumpHeight;
+    }
+
+    public int getRunDistance() {
+        return runDistance;
+    }
+
+    void run(Treadmill treadmill) {
+        boolean result = false;
+        if (getRunDistance() >= treadmill.getDistance()) {
+            System.out.println(name + " успешно пробежал(а) на дорожке длинной " + treadmill.getDistance() + " м.");
+            result = true;
+        } else {
+            System.out.println(name + " не смог(ла) пробежать " + treadmill.getDistance() + " м., запас хода " + getRunDistance());
+        }
+        setDropout(result);
+    }
+
+    void jump(Wall wall) {
+        boolean result = false;
+        if (getJumpHeight() >= wall.getHeight()) {
+            System.out.println(name + " успешно перепрыгнул(а) стену высотой " + wall.getHeight() + " м.");
+            result = true;
+        } else {
+            System.out.println(name + " не смог(ла) перепрыгнуть стену " + wall.getHeight() + " м., максимальная высота прыжка " + getJumpHeight() + " м.");
+        }
+        setDropout(result);
     }
 
 }
