@@ -27,7 +27,7 @@ public class Main {
         }
         for (int i = 0; i < obstacles.length; i++) {
             for (int j = 0; j < competitors.length; j++) {
-                if (competitors[i].isDropout()) {
+                if (competitors[j].isDropout()) {
                     continue;
                 }
                 if (obstacles[i] instanceof Wall) {

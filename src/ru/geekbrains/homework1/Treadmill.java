@@ -1,6 +1,6 @@
 package ru.geekbrains.homework1;
 
-public class Treadmill extends Obstacle{
+public class Treadmill implements Obstacle{
     public static final int MAXDISTANCE = 50000;
     protected int distance;
 

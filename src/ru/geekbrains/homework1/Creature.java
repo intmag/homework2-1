@@ -46,10 +46,10 @@ public class Creature {
     }
 
     void run(Treadmill treadmill) {
-        boolean result = false;
+        boolean result = true;
         if (getRunDistance() >= treadmill.getDistance()) {
             System.out.println(name + " успешно пробежал(а) на дорожке длинной " + treadmill.getDistance() + " м.");
-            result = true;
+            result = false;
         } else {
             System.out.println(name + " не смог(ла) пробежать " + treadmill.getDistance() + " м., запас хода " + getRunDistance());
         }
@@ -57,10 +57,10 @@ public class Creature {
     }
 
     void jump(Wall wall) {
-        boolean result = false;
+        boolean result = true;
         if (getJumpHeight() >= wall.getHeight()) {
             System.out.println(name + " успешно перепрыгнул(а) стену высотой " + wall.getHeight() + " м.");
-            result = true;
+            result = false;
         } else {
             System.out.println(name + " не смог(ла) перепрыгнуть стену " + wall.getHeight() + " м., максимальная высота прыжка " + getJumpHeight() + " м.");
         }
